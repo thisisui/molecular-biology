@@ -3,42 +3,34 @@ var config = require('../config/config.js')();
 module.exports = function () {
 
     var dna = {
-        firstStrand: null,
-
-        stringLength: 10,
-
-        isArray: function (value) {
-            return !(value.constructor.toString().indexOf("Array") === -1);
-        },
+        _firstStrand: null,
 
         createStrand: function (strand, isSecond) {
             var i;
-            for (i = 0; i < this.stringLength; i++) {
+            for (i = 0; i < config.DNA.stringLength; i++) {
                 if (isSecond) {
-                    strand[i] = config.nucleobase[this.firstStrand[i]].complementary;
+                    strand[i] = config.nucleobase[this._firstStrand[i]].complementary;
                 } else {
                     strand[i] = config.nucleobase.cache[Math.floor(Math.random() * 4)];
                 }
             }
 
             //cache update
-            this.firstStrand = strand;
+            this._firstStrand = strand;
 
             return strand;
         },
 
         createDNA: function () {
-            var firstStrand = this.createStrand(new Array(this.stringLength));
-            var secondStrand = this.createStrand(new Array(this.stringLength), true);
+            var firstStrand = this.createStrand(new Array(config.DNA.stringLength));
+            var secondStrand = this.createStrand(new Array(config.DNA.stringLength), true);
 
-            console.log(firstStrand);
-            console.log(secondStrand);
-        },
-
-        init: function () {
-            this.createDNA();
+            return {
+                53: firstStrand,
+                35: secondStrand
+            }
         }
     };
 
-    dna.init();
+    return dna.createDNA();
 };

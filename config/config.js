@@ -5,7 +5,8 @@ module.exports = function () {
             cache: ['A', 'G', 'T', 'C', 'U'],
             A: {
                 name: 'adenine',
-                complementary: 'T'
+                complementary: 'T',
+                complementaryAlt: 'U'
             },
             G: {
                 name: 'guanine',
@@ -13,8 +14,7 @@ module.exports = function () {
             },
             T: {
                 name: 'thymine',
-                complementary: 'A',
-                complementaryAlt: 'U'
+                complementary: 'A'
             },
             C: {
                 name: 'cytosine',
@@ -25,27 +25,141 @@ module.exports = function () {
                 complementary: 'G'
             }
         },
+        triplets: {
+            UUU: 'F',
+            UUC: 'F',
+
+            UUA: 'L',
+            UUG: 'L',
+            CUU: 'L',
+            CUC: 'L',
+            CUA: 'L',
+            CUG: 'L',
+
+            AUU: 'I',
+            AUC: 'I',
+            AUA: 'I',
+
+            AUG: 'M',
+
+            GUU: 'V',
+            GUC: 'V',
+            GUA: 'V',
+            GUG: 'V',
+
+            UCU: 'S',
+            UCC: 'S',
+            UCA: 'S',
+            UCG: 'S',
+
+            CCU: 'P',
+            CCC: 'P',
+            CCA: 'P',
+            CCG: 'P',
+
+            ACU: 'T',
+            ACC: 'T',
+            ACA: 'T',
+            ACG: 'T',
+
+            GCU: 'A',
+            GCC: 'A',
+            GCA: 'A',
+            GCG: 'A',
+
+            UAU: 'Y',
+            UAC: 'Y',
+
+            UAA: 'STOP',
+            UAG: 'STOP',
+
+            CAU: 'H',
+            CAC: 'H',
+
+            CAA: 'Q',
+            CAG: 'Q',
+
+            AAU: 'N',
+            AAC: 'N',
+
+            AAA: 'K',
+            AAG: 'K',
+
+            GAU: 'D',
+            GAC: 'D',
+
+            GAA: 'E',
+            GAG: 'E',
+
+            UGU: 'C',
+            UGC: 'C',
+
+            UGA: 'STOP',
+
+            UGG: 'W',
+
+            CGU: 'R',
+            CGC: 'R',
+            CGA: 'R',
+            CGG: 'R',
+
+            AGU: 'S',
+            AGC: 'S',
+
+            AGA: 'R',
+            AGG: 'R',
+
+            GGU: 'G',
+            GGC: 'G',
+            GGA: 'G',
+            GGG: 'G'
+        },
         aminoacid: {
             cache: [],
-            I: {
-                name: 'isoleucine',
-                codons: ['ATT', 'ATC', 'ATA']
+            F: {
+                abbr: 'phe',
+                name: 'phenylanine',
+                codons: ['UUU', 'UUC']
             },
             L: {
+                abbr: 'leu',
                 name: 'leucine',
-                codons: ['CTT', 'CTC', 'CTA', 'CTG', 'TTA', 'TTG']
+                codons: ['CUU', 'CUC', 'CUA', 'CUG', 'UUA', 'UUG']
             },
-            V: {
-                name: 'valine',
-                codons: ['GTT', 'GTC', 'GTA', 'GTG']
-            },
-            F: {
-                name: 'phenylalanine',
-                codons: ['TTT', 'TTC']
+            I: {
+                abbr: 'iso',
+                name: 'isoleucine',
+                codons: ['AUU', 'AUC', 'AUA']
             },
             M: {
+                abbr: 'met',
                 name: 'methionine',
-                codons: ['ATG']
+                codons: ['AUG']
+            },
+            V: {
+                abbr: 'val',
+                name: 'valine',
+                codons: ['GUU', 'GUC', 'GUA', 'GUG']
+            },
+            S: {
+                abbr: 'ser',
+                name: 'serine',
+                codons: ['UCU', 'UCC', 'UCA', 'UCG']
+            },
+            P: {
+                abbr: 'pro',
+                name: 'proline',
+                codons: ['CCU', 'CCC', 'CCA', 'CCG']
+            },
+            T: {
+                abbr: 'thr',
+                name: 'threonine',
+                codons: ['ACU', 'ACC', 'ACA', 'ACG']
+            },
+            A: {
+                abbr: 'ala',
+                name: 'alanine',
+                codons: ['GCU', 'GCC', 'GCA', 'GCG']
             }
         },
         DNA: {
@@ -53,7 +167,7 @@ module.exports = function () {
             // 10000000 - 4259ms-4557ms / 1094ms-1185ms
             // 20000000 - 8154ms-8664ms / 2143ms-2290ms
             // 50000000 - 26911ms-27397ms / after update - no array in complementary checking 10602ms-11162ms (17684ms)
-            stringLength: 1000000
+            stringLength: 1000
         }
     }
 };
