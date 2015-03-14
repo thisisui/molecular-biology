@@ -144,7 +144,7 @@ module.exports = function () {
             S: {
                 abbr: 'ser',
                 name: 'serine',
-                codons: ['UCU', 'UCC', 'UCA', 'UCG']
+                codons: ['UCU', 'UCC', 'UCA', 'UCG', 'AGU', 'AGC']
             },
             P: {
                 abbr: 'pro',
@@ -160,6 +160,61 @@ module.exports = function () {
                 abbr: 'ala',
                 name: 'alanine',
                 codons: ['GCU', 'GCC', 'GCA', 'GCG']
+            },
+            Y: {
+                abbr: 'tyr',
+                name: 'tyrosine',
+                codons: ['UAU', 'UAC']
+            },
+            H:{
+                abbr: 'his',
+                name: 'histidine',
+                codons: ['CAU', 'CAC']
+            },
+            Q:{
+                abbr: 'glu',
+                name: 'glutamine',
+                codons: ['CAA', 'CAG']
+            },
+            N:{
+                abbr: 'asn',
+                name: 'asparagine',
+                codons: ['AAU', 'AAC']
+            },
+            K:{
+                abbr: 'lys',
+                name: 'lysine',
+                codons: ['AAA', 'AAG']
+            },
+            D:{
+                abbr: 'asp',
+                name: 'aspartic acid',
+                codons: ['GAU', 'GAC']
+            },
+            E:{
+                abbr: 'glu',
+                name: 'glutamic acid',
+                codons: ['GAA', 'GAG']
+            },
+            C:{
+                abbr: 'cys',
+                name: 'cysteine',
+                codons: ['UGU', 'UGC']
+            },
+            W:{
+                abbr: 'trp',
+                name: 'tryptophan',
+                codons: ['UGG']
+            },
+            R:{
+                abbr: 'arg',
+                name: 'arginine',
+                codons: ['AAU', 'AAC','CGU', 'CGC', 'CGA', 'CGG', 'AGA', 'AGG']
+            },
+            G:{
+                abbr: 'gly',
+                name: 'glycine',
+                codons: ['GGU', 'GGC','GGA','GGG']
             }
         },
         DNA: {

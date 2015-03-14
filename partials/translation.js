@@ -18,8 +18,8 @@ module.exports = function (rna) {
                     break;
                 }
                 output[j] = config.triplets[triplet];
+                output[j] += ' - ' + config.aminoacid[config.triplets[triplet]].name;
                 j++;
-
             }
             return output;
         },
