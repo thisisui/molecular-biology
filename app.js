@@ -11,5 +11,6 @@ var protein = translation(mRNA);
 //console.log(DNA);
 //console.log(mRNA);
 console.log(protein);
+console.log('Aminoacids: ', protein.length);
 
 console.timeEnd('DNA-creation');

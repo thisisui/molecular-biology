@@ -1,24 +1,20 @@
 var config = require('../config/config.js')();
+
 var transcription = function (DNA) {
-    var DNA = DNA;
-    var createRNA = function () {
-        var i = 0,
-            ln,
-            rna = [];
 
-        if (DNA[35]) {
-            ln = DNA[35].length;
-            for (i; i < ln; i++) {
-                var nucleobase = config.nucleobase[DNA[35][i]];
-                var complementary = nucleobase.complementaryAlt || nucleobase.complementary;
+    function createRNA(DNA) {
+        var rna = [];
 
-                rna[i] = complementary;
-            }
-        }
+        DNA[35].forEach(function (item, i) {
+            var nucleobase = config.nucleobase[item];
+
+            rna[i] = nucleobase.complementaryAlt || nucleobase.complementary;
+        });
+
         return rna;
-    };
+    }
 
-    return createRNA();
+    return createRNA(DNA);
 };
 
 

@@ -222,7 +222,7 @@ module.exports = function () {
             // 10000000 - 4259ms-4557ms / 1094ms-1185ms
             // 20000000 - 8154ms-8664ms / 2143ms-2290ms
             // 50000000 - 26911ms-27397ms / after update - no array in complementary checking 10602ms-11162ms (17684ms)
-            stringLength: 1000
+            stringLength: 10000000
         }
     }
 };
