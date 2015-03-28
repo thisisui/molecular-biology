@@ -1,12 +1,38 @@
 var config = require('../config/config.js')();
 
-var translation = function (rna) {
 
+var translation = function (rna) {
+    var startTriplet = 'AUG';
+    var noProtein = 'No protein';
+
+    /**
+     * Checks does triplet match STOP triplet pattern
+     *
+     * @param triplet {string} three aminoacids names
+     * @returns {boolean} should translation end
+     */
     function shouldTranslationEnd(triplet) {
         return config.triplets[triplet] && config.triplets[triplet] === 'STOP';
     }
 
-    function matchTriplet(proteinCode) {
+    /**
+     * Checks does triplet match START triplet pattern
+     *
+     * @param i {Number} index on rna array
+     * @param rna {Array} strand of mRNA
+     * @returns {boolean} should translation start
+     */
+    function shouldTranslationStart(i, rna) {
+        return (rna[i] + rna[i + 1] + rna[i + 2]) === startTriplet;
+    }
+
+    /**
+     * Match triplet of nucleobases with proper aminoacid
+     *
+     * @param proteinCode {Array} line of mRNA coding protein
+     * @returns output {Array} aminoacids creating protein
+     */
+    function matchTriplets(proteinCode) {
         var i = 0; //will jump
         var j = 0;
         var ln = proteinCode.length;
@@ -24,17 +50,22 @@ var translation = function (rna) {
         return output;
     }
 
+    /**
+     * Creates protein from mRNA
+     *
+     * @param rna {Array} strand of mRNA
+     * @returns protein {Array} aminoadics creating protein
+     */
     function createProtein(rna) {
-        var i = 0,
+        var protein = noProtein,
+            proteinCode = null,
             ln = rna.length,
-            proteinCode,
-            protein = 'No protein';
+            i = 0;
 
         for (i; i < ln - 2; i++) {
-            var triplet = rna[i] + rna[i + 1] + rna[i + 2];
-            if (triplet === 'AUG') {
+            if (shouldTranslationStart(i, rna)) {
                 proteinCode = rna.splice(i);
-                protein = matchTriplet(proteinCode);
+                protein = matchTriplets(proteinCode);
             }
         }
 
@@ -42,7 +73,6 @@ var translation = function (rna) {
     }
 
     return createProtein(rna);
-
 };
 
 module.exports = translation;
