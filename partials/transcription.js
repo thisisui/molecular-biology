@@ -1,4 +1,5 @@
 var config = require('../config/config.js')();
+var tRNA = require('../modules/tRNA.js');
 
 var transcription = function (DNA) {
 
@@ -6,9 +7,7 @@ var transcription = function (DNA) {
         var rna = [];
 
         DNA[35].forEach(function (item, i) {
-            var nucleobase = config.nucleobase[item];
-
-            rna[i] = nucleobase.complementaryAlt || nucleobase.complementary;
+            rna[i] = tRNA().grabNucleobase(item);
         });
 
         return rna;
@@ -16,6 +15,5 @@ var transcription = function (DNA) {
 
     return createRNA(DNA);
 };
-
 
 module.exports = transcription;
