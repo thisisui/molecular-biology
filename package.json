@@ -1,0 +1,31 @@
+{
+  "name": "molecular-biology",
+  "version": "1.0.0",
+  "description": "Live cell on raspberry pi",
+  "main": "app.js",
+  "dependencies": {
+    "fs": "^0.0.2"
+  },
+  "devDependencies": {
+    "fs": "0.0.2",
+    "nedb": "^1.1.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thisisui/molecular-biology.git"
+  },
+  "keywords": [
+    "biology",
+    "molecular",
+    "cell"
+  ],
+  "author": "Igor Napierala",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thisisui/molecular-biology/issues"
+  },
+  "homepage": "https://github.com/thisisui/molecular-biology#readme"
+}

@@ -42,7 +42,7 @@ var translation = function (rna) {
 
             if (shouldTranslationEnd(triplet)) break;
 
-            output[j] = config.triplets[triplet] + ' - ' + config.aminoacid[config.triplets[triplet]].name;
+            output[j] = '\n' + config.triplets[triplet] + ' - ' + config.aminoacid[config.triplets[triplet]].name;
             j++;
         }
 
