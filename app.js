@@ -10,7 +10,6 @@ var Datastore = require('nedb')
     db.insert({
         protein: protein
     }, function(err, newDoc){
-        console.log(newDoc);
         createProtein();
     });
     

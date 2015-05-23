@@ -35,14 +35,24 @@ var translation = function (rna) {
         var i = 0; //will jump
         var j = 0;
         var ln = proteinCode.length;
-        var output = [];
+        var output = {
+            sequence: [],
+            cysteine: {
+                amount: 0,
+                position: []
+            }
+        };
 
         for (i; i < ln; i += 3) {
             var triplet = proteinCode[i] + proteinCode[i + 1] + proteinCode[i + 2];
 
             if (shouldTranslationEnd(triplet)) break;
 
-            output[j] = '\n' + config.triplets[triplet] + ' - ' + config.aminoacid[config.triplets[triplet]].name;
+            if (isTripletCodingCysteine(triplet)) {
+                output.cysteine = updateCysteineData( output.cysteine, output.sequence.length);
+            }
+
+            output.sequence[j] = config.triplets[triplet].toLowerCase();
             j++;
         }
 
@@ -69,6 +79,32 @@ var translation = function (rna) {
         }
 
         return protein;
+    }
+
+    /**
+     * Updates cysteine data
+     *
+     * @param position {Number} position of cysteine in sequence
+     * @param cysteine {Object} data about cysteine amount and positions in sequence
+     * @returns {{amount: number, position: (Array)}}
+     */
+    function updateCysteineData(cysteine, position) {
+        cysteine.position = cysteine.position || [];
+        cysteine.position.push(position);
+
+        return {
+            amount: ++cysteine.amount,
+            position: cysteine.position
+        }
+    }
+
+    /**
+     * Checks if triplet codes cysteine which can cause specific binding between cysteines
+     * @param triplet {String} three letters coding protein
+     * @returns {boolean}
+     */
+    function isTripletCodingCysteine(triplet) {
+        return triplet === 'UGU' || triplet === 'UGC';
     }
 
     return createProtein(rna);

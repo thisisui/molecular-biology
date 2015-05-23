@@ -3,11 +3,7 @@
   "version": "1.0.0",
   "description": "Live cell on raspberry pi",
   "main": "app.js",
-  "dependencies": {
-    "fs": "^0.0.2"
-  },
   "devDependencies": {
-    "fs": "0.0.2",
     "nedb": "^1.1.2"
   },
   "scripts": {
