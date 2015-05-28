@@ -36,7 +36,7 @@ var translation = function (rna) {
         var j = 0;
         var ln = proteinCode.length;
         var output = {
-            sequence: [],
+            sequence: '',
             cysteine: {
                 amount: 0,
                 position: []
@@ -52,7 +52,7 @@ var translation = function (rna) {
                 output.cysteine = updateCysteineData( output.cysteine, output.sequence.length);
             }
 
-            output.sequence[j] = config.triplets[triplet].toLowerCase();
+            output.sequence += config.triplets[triplet].toLowerCase();
             j++;
         }
 
