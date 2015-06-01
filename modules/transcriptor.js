@@ -1,6 +1,6 @@
 var config = require('../config/config.js')();
 
-var tRNA = function () {
+var transcriptor = function () {
     return {
         grabNucleobase: function (item) {
             var nucleobase = config.nucleobase[item];
@@ -10,4 +10,4 @@ var tRNA = function () {
     };
 };
 
-module.exports = tRNA;
+module.exports = transcriptor;

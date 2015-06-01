@@ -1,5 +1,5 @@
 var config = require('../config/config.js')();
-var tRNA = require('../modules/tRNA.js');
+var transriptor = require('../modules/transcriptor.js');
 
 var transcription = function (DNA) {
 
@@ -7,7 +7,7 @@ var transcription = function (DNA) {
         var rna = [];
 
         DNA[35].forEach(function (item, i) {
-            rna[i] = tRNA().grabNucleobase(item);
+            rna[i] = transriptor().grabNucleobase(item);
         });
 
         return rna;
