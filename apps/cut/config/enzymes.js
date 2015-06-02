@@ -25,9 +25,6 @@ module.exports = function () {
             'MluI': {
                 sequence: 'A/CGCGT'
             },
-            'MluI-HF®': {
-                sequence: 'ACGCGT'
-            },
             'HpyCH4IV': {
                 sequence: 'A/CGT'
             },
@@ -35,6 +32,19 @@ module.exports = function () {
                 sequence: 'ACN/GT'
             }
             //todo give next enzymes here
+        },
+        rules: {
+            'B': ['C', 'G', 'T'],
+            'D': ['A', 'G', 'T'],
+            'H': ['A', 'C', 'T'],
+            'K': ['G', 'T'],
+            'M': ['A', 'C'],
+            'N': ['A', 'C', 'G', 'T'],
+            'R': ['A', 'G'],
+            'S': ['C', 'G'],
+            'V': ['A', 'C', 'G'],
+            'W': ['A', 'T'],
+            'Y': ['C', 'T']
         },
         getSequence: function (sequence) {
             return sequence.replace('/', '');
