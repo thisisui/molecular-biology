@@ -6,7 +6,6 @@ var plasmidSequence = plasmid.getSequence();
 var sequence, sequenceBox;
 
 for (var key in enzymes.config) {
-
     sequence = enzymes.getSequence(enzymes.config[key].sequence);
     sequenceBox = rulesChecker.prepare(sequence);
 

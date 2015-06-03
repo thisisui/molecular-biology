@@ -49,5 +49,5 @@ module.exports = function () {
         getSequence: function (sequence) {
             return sequence.replace('/', '');
         }
-    }
+    };
 };
