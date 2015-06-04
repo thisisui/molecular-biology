@@ -6,15 +6,19 @@ exports.prepareSimple = function (test) {
     test.done();
 };
 
-exports.prepareWithOneSpecific = function (test) {
+exports.prepareWithOneSpecificLetter = function (test) {
     test.expect(2);
     test.deepEqual(rulesChecker.prepare('AGCCGB'), ['AGCCGC', 'AGCCGG', 'AGCCGT']);
     test.equal(rulesChecker.prepare('AGCCGB').length, 3);
     test.done();
 };
 
-//exports.prepareWithManySpecific = function (test) {
-//    test.expect(1);
-//    test.deepEqual(rulesChecker.prepare('AGCCBB'), ['AGCCGC', 'AGCCGG', 'AGCCGT']);
-//    test.done();
-//};
+exports.prepareWithManySpecificLetters = function (test) {
+    test.expect(1);
+    test.deepEqual(rulesChecker.prepare('AGCCRR'), ['AGCCAA', 'AGCCAG', 'AGCCGA', 'AGCCGG']);
+    //test.equal(rulesChecker.prepare('AGCCRR').length, 4);
+    //test.equal(rulesChecker.prepare('RRRR').length, 16);
+    //test.equal(rulesChecker.prepare('NNNN').length, 256);
+    //test.equal(rulesChecker.prepare('ABDA').length, 18);
+    test.done();
+};

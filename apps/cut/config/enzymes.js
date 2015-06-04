@@ -46,6 +46,7 @@ module.exports = function () {
             'W': ['A', 'T'],
             'Y': ['C', 'T']
         },
+        rulesShort: 'BDHKMNRSVWY',
         getSequence: function (sequence) {
             return sequence.replace('/', '');
         }
