@@ -6,7 +6,6 @@ module.exports = function () {
         return source.substr(0, index) + character + source.substr(index + character.length);
     };
 
-
     this.hasMultipleSequences = function (recognitionSequence) {
         var value = recognitionSequence.match(new RegExp('[' + enzymes.rulesShort + ']', 'gi')) || 0;
 

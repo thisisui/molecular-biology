@@ -14,11 +14,11 @@ exports.prepareWithOneSpecificLetter = function (test) {
 };
 
 exports.prepareWithManySpecificLetters = function (test) {
-    test.expect(1);
+    test.expect(5);
     test.deepEqual(rulesChecker.prepare('AGCCRR'), ['AGCCAA', 'AGCCAG', 'AGCCGA', 'AGCCGG']);
-    //test.equal(rulesChecker.prepare('AGCCRR').length, 4);
-    //test.equal(rulesChecker.prepare('RRRR').length, 16);
-    //test.equal(rulesChecker.prepare('NNNN').length, 256);
-    //test.equal(rulesChecker.prepare('ABDA').length, 18);
+    test.equal(rulesChecker.prepare('AGCCRR').length, 4);
+    test.equal(rulesChecker.prepare('RRRR').length, 16);
+    test.equal(rulesChecker.prepare('NNNN').length, 256);
+    test.equal(rulesChecker.prepare('ABDA').length, 18);
     test.done();
 };
