@@ -1,24 +1,26 @@
+var assert = require('assert');
 var rulesChecker = require('../../../apps/cut/modules/rulesChecker.js')();
 
-exports.prepareSimple = function (test) {
-    test.expect(1);
-    test.deepEqual(rulesChecker.prepare('AGCCGA'), ['AGCCGA']);
-    test.done();
-};
+describe('Rules Checker', function () {
+    describe('prepare method', function () {
+        it('should prepare simple sequence', function (done) {
+            assert.deepEqual(rulesChecker.prepare('AGCCGA'), ['AGCCGA']);
+            done();
+        });
 
-exports.prepareWithOneSpecificLetter = function (test) {
-    test.expect(2);
-    test.deepEqual(rulesChecker.prepare('AGCCGB'), ['AGCCGC', 'AGCCGG', 'AGCCGT']);
-    test.equal(rulesChecker.prepare('AGCCGB').length, 3);
-    test.done();
-};
+        it('should prepare sequence with one specific letter', function (done) {
+            assert.deepEqual(rulesChecker.prepare('AGCCGB'), ['AGCCGC', 'AGCCGG', 'AGCCGT']);
+            assert.equal(rulesChecker.prepare('AGCCGB').length, 3);
+            done();
+        });
 
-exports.prepareWithManySpecificLetters = function (test) {
-    test.expect(5);
-    test.deepEqual(rulesChecker.prepare('AGCCRR'), ['AGCCAA', 'AGCCAG', 'AGCCGA', 'AGCCGG']);
-    test.equal(rulesChecker.prepare('AGCCRR').length, 4);
-    test.equal(rulesChecker.prepare('RRRR').length, 16);
-    test.equal(rulesChecker.prepare('NNNN').length, 256);
-    test.equal(rulesChecker.prepare('ABDA').length, 18);
-    test.done();
-};
+        it('should prepare sequence with many specific letters', function (done) {
+            assert.deepEqual(rulesChecker.prepare('AGCCRR'), ['AGCCAA', 'AGCCAG', 'AGCCGA', 'AGCCGG']);
+            assert.equal(rulesChecker.prepare('AGCCRR').length, 4);
+            assert.equal(rulesChecker.prepare('RRRR').length, 16);
+            assert.equal(rulesChecker.prepare('NNNN').length, 256);
+            assert.equal(rulesChecker.prepare('ABDA').length, 18);
+            done();
+        })
+    });
+});

@@ -1,7 +1,8 @@
 var gulp = require('gulp');
 var jshint = require('gulp-jshint');
-var nodeunit = require('gulp-nodeunit');
 var plumber = require('gulp-plumber');
+var mocha = require('gulp-mocha');
+var cover = require('gulp-coverage');
 
 gulp.task('default', ['watch']);
 
@@ -13,7 +14,14 @@ gulp.task('watch', function () {
 gulp.task('jstest', function () {
     gulp.src('./spec/**/*.js')
         .pipe(plumber())
-        .pipe(nodeunit());
+        .pipe(cover.instrument({
+            pattern: ['./apps/cut/**/*.js'],
+            debugDirectory: 'debug'
+        }))
+        .pipe(mocha({reporter: 'nyan'}))
+        .pipe(cover.gather())
+        .pipe(cover.format())
+        .pipe(gulp.dest('reports'));
 });
 
 gulp.task('jslint', function () {

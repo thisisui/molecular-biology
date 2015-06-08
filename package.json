@@ -5,12 +5,12 @@
   "main": "app.js",
   "devDependencies": {
     "gulp": "^3.8.11",
+    "gulp-coverage": "^0.3.36",
     "gulp-jshint": "^1.9.0",
-    "gulp-nodeunit": "0.0.5",
+    "gulp-mocha": "^2.1.1",
     "gulp-plumber": "^1.0.1",
     "gulp-watch": "^4.2.4",
     "nedb": "^1.1.2",
-    "nodeunit": "^0.9.1"
   },
   "scripts": {
     "test": "gulp jstest"
