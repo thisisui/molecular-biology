@@ -17,12 +17,11 @@ module.exports = function () {
             isValid = true;
 
         for (var key in enzymes.rules) {
-            if (enzymes.rules.hasOwnProperty(key)) {
-                if (recognitionSequence.indexOf(key) !== -1) {
-                    isValid = false;
-                    for (var i = 0; i < enzymes.rules[key].length; i++) {
-                        sequences.push(this.replaceAt(recognitionSequence, recognitionSequence.indexOf(key), enzymes.rules[key][i]));
-                    }
+            if (enzymes.rules.hasOwnProperty(key) && recognitionSequence.indexOf(key) !== -1) {
+                isValid = false;
+                for (var i = 0; i < enzymes.rules[key].length; i++) {
+                    sequences.push(this.replaceAt(recognitionSequence, recognitionSequence.indexOf(key), enzymes.rules[key][i]));
+
                 }
             }
         }

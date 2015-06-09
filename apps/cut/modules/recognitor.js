@@ -1,7 +1,15 @@
 module.exports = function () {
     this.recognizeSequence = function (sequence, recognitionSequence) {
-        var matched = sequence.match(new RegExp(recognitionSequence, 'gi'));
-        return matched ? matched.length : 0;
+        var sequenceToCheck = sequence + sequence.slice(0, recognitionSequence.length - 1),
+            reg = new RegExp(recognitionSequence, 'ig'),
+            response = [],
+            match;
+
+        while ((match = reg.exec(sequenceToCheck)) !== null) {
+            response.push(match);
+        }
+
+        return response;
     };
 
     return this;

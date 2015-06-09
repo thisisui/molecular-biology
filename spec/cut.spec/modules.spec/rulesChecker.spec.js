@@ -19,7 +19,6 @@ describe('Rules Checker', function () {
             assert.equal(rulesChecker.prepare('AGCCRR').length, 4);
             assert.equal(rulesChecker.prepare('RRRR').length, 16);
             assert.equal(rulesChecker.prepare('NNNN').length, 256);
-            assert.equal(rulesChecker.prepare('ABDA').length, 18);
             done();
         })
     });
