@@ -1,8 +1,9 @@
-import {Ferrodoxine} from './config/ferredoxin.js';
+import {loadXMLDoc} from './../utils/xml.loader.js';
+import {ProteinParser} from './modules/proteinParser.js';
 
-var ferrodoxine = new Ferrodoxine();
-var ferrodoxine2 = new Ferrodoxine();
+let fileHelper = new loadXMLDoc(); //Ferrodoxin
+let ferredoxin = new ProteinParser(JSON.parse(fileHelper.loadXMLDoc('./config/P00221.xml')));
+let cytochrome = new ProteinParser(JSON.parse(fileHelper.loadXMLDoc('./config/P00051.xml')));
 
-console.log(ferrodoxine.prototype === ferrodoxine2.prototype)
-console.log(ferrodoxine.constructor === ferrodoxine2.constructor)
-console.log(ferrodoxine.getStructure === ferrodoxine2.getStructure)
+console.log('The sequence of protein '+  ferredoxin.name+': ' + ferredoxin.sequence);
+console.log('The sequence of protein '+  cytochrome.name+': ' + cytochrome.sequence);
