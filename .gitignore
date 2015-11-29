@@ -4,3 +4,4 @@ node_modules
 .coverrun
 .coverdata
 debug
+liveLogger

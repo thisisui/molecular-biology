@@ -2,16 +2,33 @@ var enzymes = require('./../config/enzymes.js')();
 
 module.exports = function () {
 
+    /**
+     *
+     * @param source
+     * @param index
+     * @param character
+     * @returns {string}
+     */
     this.replaceAt = function (source, index, character) {
         return source.substr(0, index) + character + source.substr(index + character.length);
     };
 
+    /**
+     *
+     * @param recognitionSequence
+     * @returns {boolean}
+     */
     this.hasMultipleSequences = function (recognitionSequence) {
         var value = recognitionSequence.match(new RegExp('[' + enzymes.rulesShort + ']', 'gi')) || 0;
 
         return value.length > 1;
     };
 
+    /**
+     *
+     * @param recognitionSequence
+     * @returns {Array}
+     */
     this.simpleProcessSequence = function (recognitionSequence) {
         var sequences = [],
             isValid = true;
@@ -21,7 +38,6 @@ module.exports = function () {
                 isValid = false;
                 for (var i = 0; i < enzymes.rules[key].length; i++) {
                     sequences.push(this.replaceAt(recognitionSequence, recognitionSequence.indexOf(key), enzymes.rules[key][i]));
-
                 }
             }
         }
@@ -33,6 +49,12 @@ module.exports = function () {
         return sequences;
     };
 
+    /**
+     *
+     * @param recognitionSequence
+     * @param sequences
+     * @returns {*}
+     */
     this.advancedProcessSequence = function (recognitionSequence, sequences) {
         var sequencesTemp = [],
             value = recognitionSequence.match(new RegExp('[' + enzymes.rulesShort + ']', 'gi')) || 0;
@@ -49,6 +71,11 @@ module.exports = function () {
         return sequences;
     };
 
+    /**
+     *
+     * @param recognitionSequence
+     * @returns {Array}
+     */
     this.prepare = function (recognitionSequence) {
         var sequences = [];
 
