@@ -3,16 +3,17 @@ var jshint = require('gulp-jshint');
 var plumber = require('gulp-plumber');
 var mocha = require('gulp-mocha');
 var cover = require('gulp-coverage');
+const eslint = require('gulp-eslint');
 
 gulp.task('default', ['watch']);
 
 gulp.task('watch', function () {
-    gulp.watch('./apps/cut/**/*.js', ['jslint', 'jstest']);
+    gulp.watch('./cut/**/*.js', ['lint', 'jstest']);
     gulp.watch('./spec/**/*.js', ['jstest']);
 });
 
 gulp.task('jstest', function () {
-    gulp.src('./spec/**/*.js')
+    gulp.src('./apps/spec/**/*.js')
         .pipe(plumber())
         .pipe(cover.instrument({
             pattern: ['./apps/cut/**/*.js'],
@@ -23,6 +24,7 @@ gulp.task('jstest', function () {
         .pipe(cover.format())
         .pipe(gulp.dest('reports'));
 });
+
 
 gulp.task('jslint', function () {
     return gulp.src('./apps/cut/**/*.js')
