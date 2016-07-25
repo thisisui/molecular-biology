@@ -1,7 +1,6 @@
 module.exports = function () {
 
     /**
-     *
      * @param sequence
      * @param recognitionSequence
      * @returns {Array}

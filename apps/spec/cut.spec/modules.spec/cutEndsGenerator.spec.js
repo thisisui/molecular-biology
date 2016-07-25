@@ -1,5 +1,5 @@
 var assert = require('assert');
-var recognitor = require('../../../apps/cut/modules/cutEndsGenerator.js')();
+var recognitor = require('./../../../cut/modules/cutEndsGenerator.js')();
 
 describe('Cut ends generator', function () {
     describe('get ends method', function () {

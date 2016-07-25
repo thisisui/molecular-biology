@@ -5,3 +5,5 @@ node_modules
 .coverdata
 debug
 liveLogger
+npm-debug.log
+reports

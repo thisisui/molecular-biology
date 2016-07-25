@@ -1,5 +1,5 @@
 var assert = require('assert');
-var recognitor = require('../../../apps/cut/modules/recognitor.js')();
+var recognitor = require('./../../../cut/modules/recognitor.js')();
 
 describe('Recognitor', function () {
     describe('recognize sequence method', function () {

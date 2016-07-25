@@ -1,5 +1,5 @@
 var assert = require('assert');
-var rulesChecker = require('../../../apps/cut/modules/rulesChecker.js')();
+var rulesChecker = require('./../../../cut/modules/rulesChecker.js')();
 
 describe('Rules Checker', function () {
     describe('prepare method', function () {

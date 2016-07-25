@@ -1,5 +1,5 @@
 var assert = require('assert');
-var enzymes = require('../../../apps/cut/config/enzymes.js')();
+var enzymes = require('./../../../cut/config/enzymes.js')();
 
 describe('Enzymes', function () {
     describe('get sequence method', function () {
