@@ -1,5 +1,3 @@
-var config = require('../config/config.js')();
-
 var dna = function () {
     var _firstStrand = null;
 

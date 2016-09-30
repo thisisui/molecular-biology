@@ -1,5 +1,4 @@
-var config = require('../config/config.js')();
-var transriptor = require('../modules/transcriptor.js');
+var transriptor = require('./modules/transcriptor.js');
 
 var transcription = function (DNA) {
 

@@ -1,4 +1,4 @@
-var config = require('../config/config.js')();
+var config = require('./config/config.js')();
 
 var translation = function (rna) {
     var startTriplet = 'AUG';
