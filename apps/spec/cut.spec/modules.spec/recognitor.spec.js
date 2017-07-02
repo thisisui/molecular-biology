@@ -18,10 +18,17 @@ describe('Recognitor', function () {
             done();
         });
 
+        it('should recognize cut on ends', function (done) {
+
+            assert.equal(recognitor.recognizeSequence('AAATTTCA', 'CAAA').length, 1);
+            done();
+        });
+
         it('should return index of cut', function (done) {
             assert.equal(recognitor.recognizeSequence('AAATTT', 'ATT')[0].index, 2);
             assert.equal(recognitor.recognizeSequence('ATAT', 'AT')[0].index, 0);
             assert.equal(recognitor.recognizeSequence('ATAT', 'AT')[1].index, 2);
+            //todo show index on joint
             done();
         });
     });

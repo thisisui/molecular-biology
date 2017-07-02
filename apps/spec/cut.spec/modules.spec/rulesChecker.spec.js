@@ -14,7 +14,7 @@ describe('Rules Checker', function () {
             done();
         });
 
-        xit('should prepare sequence with many specific letters', function (done) {
+        it('should prepare sequence with many specific letters', function (done) {
             assert.deepEqual(rulesChecker.prepare('AGCCRR'), ['AGCCAA', 'AGCCAG', 'AGCCGA', 'AGCCGG']);
             assert.equal(rulesChecker.prepare('AGCCRR').length, 4);
             assert.equal(rulesChecker.prepare('RRRR').length, 16);

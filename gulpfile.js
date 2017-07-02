@@ -8,8 +8,8 @@ const eslint = require('gulp-eslint');
 gulp.task('default', ['watch']);
 
 gulp.task('watch', function () {
-    gulp.watch('./cut/**/*.js', ['lint', 'jstest']);
-    gulp.watch('./spec/**/*.js', ['jstest']);
+    gulp.watch('./apps/cut/**/*.js', ['jslint', 'jstest']);
+    gulp.watch('./apps/spec/**/*.js', ['jstest']);
 });
 
 gulp.task('jstest', function () {

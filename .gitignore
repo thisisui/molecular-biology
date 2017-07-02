@@ -7,3 +7,5 @@ debug
 liveLogger
 npm-debug.log
 reports
+a
+package-lock.json
